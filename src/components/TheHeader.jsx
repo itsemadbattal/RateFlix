@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
+import logo from "../assets/logo.svg";
+
 import styles from "./TheHeader.module.css";
 import { NavLink } from "react-router-dom";
 
@@ -19,13 +21,15 @@ const TheHeader = () => {
   return (
     <div className={styles.header}>
       <NavLink to="/">RateFlix</NavLink>
+
       <div className={styles.searchContainer}>
         <input
           type="search"
-          placeholder="search for a movie"
+          placeholder="movie name..."
           onChange={(event) => serachChangeHandler(event.target.value)}
         />
       </div>
+      <img src={logo} className={styles.logo} />
     </div>
   );
 };

@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import {
   CardMeta,
   CardHeader,
@@ -10,8 +12,17 @@ import {
 import styles from "./MovieItem.module.css";
 
 const MovieItem = (props) => {
+  const navigate = useNavigate();
+
+  const navigateToMovieDetails = (id) => {
+    navigate(`/${id}`);
+  };
+
   return (
-    <Card className={styles.movieContainer}>
+    <Card
+      className={styles.movieContainer}
+      onClick={() => navigateToMovieDetails(props.id)}
+    >
       <Image
         src={`https://image.tmdb.org/t/p/w500${props.poster_path}`}
         wrapped

@@ -2,21 +2,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "semantic-ui-css/semantic.min.css";
 
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-
-import { fetchMoviesList } from "./store/movies-actions";
-
 import Root from "./pages/Root";
 import HomePage from "./pages/Home";
+import MovieDetailPage from "./pages/MovieDetailPage";
 
 const App = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchMoviesList());
-  }, [dispatch]);
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -25,6 +15,10 @@ const App = () => {
         {
           index: true,
           element: <HomePage />,
+        },
+        {
+          path: ":id",
+          element: <MovieDetailPage />,
         },
       ],
     },

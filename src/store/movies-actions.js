@@ -33,6 +33,38 @@ export const fetchMoviesList = () => {
     }
   };
 };
+export const fetchMovie = (id) => {
+  return async (dispatch) => {
+    const fetchMovieDetails = async () => {
+      const res = await axios.get(
+        `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
+        {
+          headers: {
+            Authorization: `Bearer ${
+              import.meta.env.VITE_API_READ_ACCESS_TOKEN_TMDB
+            }`,
+          },
+        }
+      );
+
+      if (res.status !== 200) {
+        throw new Error();
+      }
+      console.log("RES", res);
+
+      const data = await res.data;
+      return data;
+    };
+
+    try {
+      const movie = await fetchMovieDetails();
+      console.log("MOVIE", movie);
+      dispatch(moviesActions.setMovies(movie));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
 
 export const searchForAMovie = (searchParam) => {
   return async (dispatch) => {
@@ -52,8 +84,6 @@ export const searchForAMovie = (searchParam) => {
       if (res.status !== 200) {
         throw new Error();
       }
-      console.log("Full Response:", res);
-      console.log("Response Data:", res.data);
 
       const data = await res.data;
 
