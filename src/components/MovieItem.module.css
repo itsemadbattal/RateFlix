@@ -1,0 +1,27 @@
+.movieContainer {
+  max-height: 45rem;
+  height: 45rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: red;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.star {
+  font-size: 20px;
+  color: rgb(241, 200, 78);
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
