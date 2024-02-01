@@ -16,12 +16,22 @@ const MovieDetails = ({ id }) => {
   }, [dispatch, id]);
 
   return (
-    <>
+    <div className={styles.detailsContainer}>
       {movies?.overview ? (
-        <div>
-          <h1>{movies.overview}</h1>
+        <>
           <img src={`https://image.tmdb.org/t/p/w500${movies.backdrop_path}`} />
-        </div>
+          <h1>{movies.title}</h1>
+          <h3>{movies.overview}</h3>
+
+          <div className={styles.footer}>
+            <div className={styles.genres}>
+              {movies.genres.map((g) => (
+                <p key={g.id}>{g.name}</p>
+              ))}
+            </div>
+            <p>{movies.release_date}</p>
+          </div>
+        </>
       ) : (
         <div className={styles.loader}>
           <Dimmer active>
@@ -29,7 +39,7 @@ const MovieDetails = ({ id }) => {
           </Dimmer>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

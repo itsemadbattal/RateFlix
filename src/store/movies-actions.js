@@ -26,7 +26,7 @@ export const fetchMoviesList = () => {
 
     try {
       const movies = await fetchMovies();
-      console.log(movies);
+
       dispatch(moviesActions.setMovies(movies));
     } catch (err) {
       console.log(err);
@@ -50,7 +50,6 @@ export const fetchMovie = (id) => {
       if (res.status !== 200) {
         throw new Error();
       }
-      console.log("RES", res);
 
       const data = await res.data;
       return data;
@@ -58,7 +57,7 @@ export const fetchMovie = (id) => {
 
     try {
       const movie = await fetchMovieDetails();
-      console.log("MOVIE", movie);
+
       dispatch(moviesActions.setMovies(movie));
     } catch (err) {
       console.log(err);

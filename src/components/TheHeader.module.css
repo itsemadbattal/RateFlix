@@ -27,6 +27,7 @@
 
 .searchContainer input {
   height: 2rem;
+  width: 20rem;
   padding: 18px 32px;
   border-radius: 6px;
   border: none;
