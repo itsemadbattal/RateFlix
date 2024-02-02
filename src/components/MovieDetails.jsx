@@ -15,23 +15,35 @@ const MovieDetails = ({ id }) => {
     dispatch(fetchMovie(id));
   }, [dispatch, id]);
 
+  const genres = movies.genres;
+  const languages = movies.spoken_languages;
+  const production_companies = movies.production_companies;
+  console.log(movies);
+
   return (
     <div className={styles.detailsContainer}>
-      {movies?.overview ? (
-        <>
+      {movies?.original_title ? (
+        <div>
           <img src={`https://image.tmdb.org/t/p/w500${movies.backdrop_path}`} />
-          <h1>{movies.title}</h1>
-          <h3>{movies.overview}</h3>
-
-          <div className={styles.footer}>
-            <div className={styles.genres}>
-              {movies.genres.map((g) => (
-                <p key={g.id}>{g.name}</p>
-              ))}
-            </div>
-            <p>{movies.release_date}</p>
-          </div>
-        </>
+          <h1>
+            {movies.original_title} - {movies.tagline}
+          </h1>
+          <p>{movies.overview}</p>
+          <p>Genres: {genres.map((g) => g.name).join(", ")}</p>
+          <p>Budget: {movies.budget} $</p>
+          <p>
+            Spoken Languages: {languages.map((l) => l.english_name).join(", ")}
+          </p>
+          <p>
+            Production Companies:{" "}
+            {production_companies.map((p) => p.name).join(", ")}
+          </p>
+          <p>{movies.release_date}</p>
+          <p>
+            {movies.vote_average.toFixed(1)}{" "}
+            <span className={styles.star}>&#9733;</span>
+          </p>
+        </div>
       ) : (
         <div className={styles.loader}>
           <Dimmer active>
