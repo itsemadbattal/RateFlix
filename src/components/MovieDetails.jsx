@@ -18,7 +18,7 @@ const MovieDetails = ({ id }) => {
   const genres = movies.genres;
   const languages = movies.spoken_languages;
   const production_companies = movies.production_companies;
-  console.log(movies);
+  // console.log(movies);
 
   return (
     <div className={styles.detailsContainer}>

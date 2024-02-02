@@ -3,10 +3,13 @@ import axios from "axios";
 import { moviesActions } from "./movies-slice";
 
 export const fetchMoviesList = () => {
+  const randomPage = Math.floor(Math.random() * 500 + 1);
+  const fixedRandomPage = randomPage.toFixed(0);
+
   return async (dispatch) => {
     const fetchMovies = async () => {
       const res = await axios.get(
-        "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+        `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${fixedRandomPage}`,
         {
           headers: {
             Authorization: `Bearer ${
