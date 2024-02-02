@@ -16,6 +16,7 @@ const App = () => {
           index: true,
           element: <HomePage />,
         },
+
         {
           path: ":id",
           element: <MovieDetailPage />,

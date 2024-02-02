@@ -25,12 +25,14 @@ const MovieDetails = ({ id }) => {
       {movies?.original_title ? (
         <div>
           <img src={`https://image.tmdb.org/t/p/w500${movies.backdrop_path}`} />
-          <h1>
-            {movies.original_title} - {movies.tagline}
-          </h1>
+          <h2>
+            {movies.original_title}
+            {movies.tagline ? " - " + movies.tagline : ""}
+          </h2>
           <p>{movies.overview}</p>
           <p>Genres: {genres.map((g) => g.name).join(", ")}</p>
-          <p>Budget: {movies.budget} $</p>
+          <p>Movie Length: {movies.runtime} mins</p>
+          <p>{movies.budget ? "Budget: " + movies.budget + " $" : " "} </p>
           <p>
             Spoken Languages: {languages.map((l) => l.english_name).join(", ")}
           </p>
@@ -38,7 +40,7 @@ const MovieDetails = ({ id }) => {
             Production Companies:{" "}
             {production_companies.map((p) => p.name).join(", ")}
           </p>
-          <p>{movies.release_date}</p>
+          <p>Release Date: {movies.release_date}</p>
           <p>
             {movies.vote_average.toFixed(1)}{" "}
             <span className={styles.star}>&#9733;</span>
