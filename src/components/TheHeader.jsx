@@ -9,10 +9,12 @@ import { NavLink } from "react-router-dom";
 import { searchForAMovie } from "../store/movies-actions";
 
 const TheHeader = () => {
+  //keeping the searchParam in a state so we can send it with the request
   const [searchParam, setSearchParam] = useState("");
 
   const dispatch = useDispatch();
 
+  //dispatching the search request on each key stroke
   const serachChangeHandler = (value) => {
     setSearchParam(value);
     dispatch(searchForAMovie(searchParam));
