@@ -13,4 +13,4 @@ Currently, two official plugins are available:
 1. Users can search for movies by name, search request kicks in after the second character.
 1. The list of movies fetched is dynamic and will change on every page reload.
 1. React Redux was used to facilitate the component logic
-1. Semantic UI was used to have cool looking cards and loaders
+1. Semantic UI was used to have cool looking cards, images, and loaders
