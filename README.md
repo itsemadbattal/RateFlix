@@ -14,3 +14,11 @@ Currently, two official plugins are available:
 1. The list of movies fetched is dynamic and will change on every page reload.
 1. React Redux was used to facilitate the component logic
 1. Semantic UI was used to have cool looking cards, images, and loaders
+
+# Tools Usee:
+
+1. React with Vite
+1. React Redux
+1. Semanitc UI React `https://react.semantic-ui.com`
+1. Axios for sending requests
+1. CSS modules for styling the components
